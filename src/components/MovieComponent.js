@@ -24,12 +24,28 @@ const MovieName = styled.span`
     overflow: hidden;
 `;
 
+const InfoColumn = styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+const MovieInfo = styled.span`
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    text-transform: capitalize;
+`
+
 const MovieComponent = (props) => {
-    
+    const {Title, Year, imbdID, Type, Poster } = props.movie;
     return (
     <MovieContainer>
-        <CoverImage src="https://images-na.ssl-images-amazon.com/images/I/71qXcEIdwbL.jpg" />
-        <MovieName> Movie Name </MovieName>
+        <CoverImage src={Poster} />
+        <MovieName> {Title} </MovieName>
+        <InfoColumn>
+            <MovieInfo>Year: {Year}</MovieInfo>
+            <MovieInfo>Type: {Type} </MovieInfo>
+        </InfoColumn>
     </MovieContainer>
     );
 };
